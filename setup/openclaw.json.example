@@ -1,0 +1,68 @@
+// openclaw.json — example config for a practitioner setup
+// Replace all YOUR_* placeholders before use.
+// Full config reference: https://docs.openclaw.ai/gateway/configuration
+{
+  // Primary model for complex work
+  model: "anthropic/claude-sonnet-4-6",
+
+  // Cache retention: "long" = 1 hour. CRITICAL.
+  // "short" (5 min default) causes full context re-upload every 5 min → rate limit spikes.
+  cacheRetention: "long",
+
+  contextPruning: {
+    mode: "cache-ttl",
+    ttl: "1h",
+  },
+
+  compaction: {
+    mode: "safeguard",
+    reserveTokens: 100000,
+  },
+
+  subagents: {
+    maxConcurrent: 2, // Prevent rate limit pile-ons
+  },
+
+  agents: {
+    list: [
+      {
+        // Main agent — Sonnet, full tool access, your primary workspace
+        id: "main",
+        default: true,
+        workspace: "~/.openclaw/workspace",
+      },
+      {
+        // Lite agent — Haiku, lightweight tasks and casual chat
+        // Route a second channel or account here to default cheap interactions
+        id: "lite",
+        workspace: "~/.openclaw/workspace-lite",
+        model: "anthropic/claude-haiku-4-5",
+      },
+    ],
+  },
+
+  // Agent-to-agent messaging (needed for orchestration)
+  tools: {
+    agentToAgent: {
+      enabled: true,
+      allow: ["main", "lite"],
+    },
+  },
+
+  channels: {
+    telegram: {
+      accounts: {
+        default: {
+          botToken: "YOUR_TELEGRAM_BOT_TOKEN",
+          dmPolicy: "pairing",
+        },
+      },
+    },
+  },
+
+  providers: {
+    anthropic: {
+      apiKey: "YOUR_ANTHROPIC_API_KEY",
+    },
+  },
+}
