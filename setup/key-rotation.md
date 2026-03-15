@@ -49,6 +49,7 @@
 - If you need to share config for troubleshooting, ask Sage to sanitize it first
 - Scout's Anthropic key should be separate from TreZel-01's — limits exposure if one is compromised
 - After any rotation, verify the gateway starts cleanly before revoking the old key
+- **Scout-specific:** Scout cannot self-repair if his key is revoked before a replacement is in place — he has no brain without a working API key. Always update Scout's config and confirm he's responding via sage_too_bot *before* revoking the old key
 
 ---
 
