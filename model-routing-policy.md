@@ -18,6 +18,7 @@ Last reviewed: 2026-03-14
 | Anything with real external consequences | Sonnet | Irreversible actions need best reasoning |
 | Sub-agent spawned for simple file/data task | Haiku | Isolated task, clear output, no nuance required |
 | Sub-agent spawned for script writing/debugging | Sonnet | Code quality matters even in isolation |
+| Mid-session escalation — conversation shifts from casual to strategic | Sonnet | Escalate when stakes or complexity changes; don't wait for next session. Takes effect next turn. |
 
 ---
 
