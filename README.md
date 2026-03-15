@@ -66,6 +66,8 @@ Applied to this setup:
 
 Watch or star the repo. Journal entries are added as the setup evolves.
 
+Join the Discord: **[discord.gg/HYT8zPFz](https://discord.gg/HYT8zPFz)** — for questions, discussion, and comparing notes.
+
 If you're building something similar, the `setup/` folder has config templates you can adapt. The `AGENTS.md` and `SOUL.md` are designed to be forked and personalized.
 
 ---
